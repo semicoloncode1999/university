@@ -1,0 +1,93 @@
+.login-div-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(to right, #107797, #ff9dae);
+}
+
+form {
+    border-radius: 15px;
+    box-shadow: inset -3px -3px 5px lightgray, inset 3px 3px 5px lightgray;
+    padding: 40px 7% !important;
+}
+
+.btn-login-div {
+    border-radius: 5px;
+    margin-bottom: 15px;
+    margin-top: 20px;
+}
+
+.btn-login {
+    color: white;
+    text-transform: capitalize;
+    width: 125px;
+    border: none;
+    background-image: linear-gradient(to right, #00c2ff, #ff9cad);
+}
+
+input {
+    margin: 15px 0px;
+    background: transparent !important;
+    color: white;
+}
+
+input:focus {
+    background: transparent;
+    color: white;
+}
+
+input::placeholder {
+    color: lightgrey;
+}
+
+.icon-login {
+    margin: 5px;
+    font-size: 35px;
+}
+
+.bi-facebook {
+    color: blue;
+}
+
+.bi-google {
+    color: #d1007c;
+}
+
+.bi::before {
+    text-shadow: 0px 0px 35px white;
+}
+
+.signUp {
+    color: white;
+    font-size: 17px;
+}
+
+.bi {
+    margin: 15px 20px;
+}
+
+a:hover .bi::before {
+    text-shadow: 0px 0px 35px #44f6ff !important;
+}
+
+.login-word {
+    text-align: center;
+    color: white;
+    font-family: "Lobster", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 30px;
+}
+
+@media screen and (max-width:700px) {
+    .login-div-container {
+        display: block;
+        padding-top: 185px;
+    }
+
+    form {
+        width: 96%;
+        margin-left: 2%;
+    }
+}

@@ -1,1 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+@import 'ngx-toastr/toastr';
+
+
+[class="col-"]{
+    width: 100%;
+    float: left;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+img::selection{
+    background : none;
+}
