@@ -1,18 +1,22 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component } from '@angular/core';
 import { Auth } from '@angular/fire/auth';
-import { GoogleAuthProvider, PhoneAuthCredential, signInWithPhoneNumber, signInWithPopup,RecaptchaVerifier } from 'firebase/auth';
+import { GoogleAuthProvider, PhoneAuthCredential, signInWithPhoneNumber, signInWithPopup, RecaptchaVerifier } from 'firebase/auth';
 import { FormBuilder, Validators } from '@angular/forms';
+import { WindowService } from 'src/app/services/window.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss', '../../Modules/css/sign-style.css']
 })
-export class LoginComponent {
+export class LoginComponent implements AfterViewInit {
 
-  constructor(private formBuilder: FormBuilder, private auth: Auth ) {
+  windowRef: any;
+  OTPButton:boolean=false;
+
+  constructor(private formBuilder: FormBuilder, private auth: Auth, private windowService: WindowService) {
     auth.languageCode = 'it';
-    
+    this.windowRef = windowService.wondowRef;
   }
 
   login = this.formBuilder.group({
@@ -27,19 +31,34 @@ export class LoginComponent {
   }
 
 
-
   phone(phone: string) {
-  //   signInWithPhoneNumber(this.auth,phone,this.appVerifier).then((confirmationResult) => {
-  //     // SMS sent. Prompt user to type the code from the message, then sign the
-  //     // user in with confirmationResult.confirm(code).
-  //     // window.confirmationResult = confirmationResult;
-  //   console.log(confirmationResult)
-
-  //     // ...
-  //   }).catch((error) => {
-  //     // Error; SMS not sent
-  //     // ...
-  //   });
+    signInWithPhoneNumber(this.auth, phone, this.windowRef.RecaptchaVerifier ).then((confirmationResult) => {
+      this.windowRef.confirmationResult = confirmationResult;
+      console.log(confirmationResult)
+    }).catch((error) => {
+      console.log(error)
+    });
   }
+
+  sendOTP(otp:string){
+    this.windowRef.confirmationResult.confirm(otp).then(()=>{
+      console.log("login successfully")
+    }).catch(()=>{
+      console.log("login error")
+    })
+  }
+
+  ngAfterViewInit(): void {
+    this.windowRef.RecaptchaVerifier = new RecaptchaVerifier('receptcha-container', {
+      size: "normal",
+      callback: () => {
+        // this.OTPButton=true
+      }
+    },
+      this.auth
+    );
+    this.windowRef.RecaptchaVerifier.render()
+  }
+
 
 }

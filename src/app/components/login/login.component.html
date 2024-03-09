@@ -8,12 +8,19 @@
             <div class="form-group">
                 <input type="password" class="form-control" placeholder="password" formControlName="pass">
             </div> -->
+
             <div class="form-group">
                 <input type="tel" class="form-control" placeholder="phone" #tel>
             </div>
-            <div class="text-center btn-login-div">
-                <button class="btn btn-login" (click)="phone(tel.value)">login</button>
+            <div id="receptcha-container"></div>
+            <button class="btn btn-login" (click)="phone(tel.value)" [disabled]="OTPButton">send Otp</button>
+            <div class="form-group">
+                <input type="tel" class="form-control" placeholder="otp" #otp>
             </div>
+            <div class="text-center btn-login-div">
+                <button class="btn btn-login" (click)="sendOTP(otp.value)">verify</button>
+            </div>
+
             <div class="d-flex justify-content-between align-items-center">
                 <div>
                     <a (click)="google()"><i class="bi bi-google icon-login"></i></a>
