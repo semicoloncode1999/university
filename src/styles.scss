@@ -3,15 +3,21 @@
 @import 'ngx-toastr/toastr';
 
 
-[class="col-"]{
+[class="col-"] {
     width: 100%;
     float: left;
 }
 
-*{
+* {
     box-sizing: border-box;
 }
 
-img::selection{
-    background : none;
+img::selection {
+    background: none;
+}
+
+.form-group {
+    margin-top: 10px;
+    width: 99%;
+    margin-left: .5%;
 }

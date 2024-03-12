@@ -1,5 +1,6 @@
-.login-div-container {
-    height: 100vh;
+.login-div-container,
+.container-fluid {
+    height: calc(100vh - 81px);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -9,7 +10,7 @@
 form {
     border-radius: 15px;
     box-shadow: inset -3px -3px 5px lightgray, inset 3px 3px 5px lightgray;
-    padding: 40px 7% !important;
+    padding: 30px 7% !important;
 }
 
 .btn-login-div {
@@ -43,11 +44,16 @@ input::placeholder {
 
 .icon-login {
     margin: 5px;
-    font-size: 35px;
+    font-size: 30px;
+}
+
+.icon-btn {
+    background: none;
+    border: none;
 }
 
 .bi-facebook {
-    color: blue;
+    color: #0000e5;
 }
 
 .bi-google {
@@ -67,6 +73,27 @@ input::placeholder {
     margin: 15px 20px;
 }
 
+.bi {
+    margin: 15px 10px !important;
+}
+
+#receptcha-container div div {
+    width: 100% !important;
+}
+
+.bi-telephone-plus.icon-login {
+    font-size: 24px;
+    color: floralwhite;
+}
+
+.bi-arrow-left-circle {
+    position: absolute;
+    top: 0px;
+    right: 10px;
+    color: white;
+    font-size: 25px;
+}
+
 a:hover .bi::before {
     text-shadow: 0px 0px 35px #44f6ff !important;
 }
@@ -83,11 +110,16 @@ a:hover .bi::before {
 @media screen and (max-width:700px) {
     .login-div-container {
         display: block;
-        padding-top: 185px;
+        padding-top: 50px;
     }
 
     form {
         width: 96%;
         margin-left: 2%;
+    }
+
+    .container-fluid {
+        padding-top: 50px;
+        display: block !important;
     }
 }

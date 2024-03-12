@@ -1,0 +1,18 @@
+label{
+    text-transform: capitalize;
+    font-weight: 500;
+    color: beige;
+    margin-bottom: 2px;
+}
+
+.col-sm-4{
+    padding: 20px 15px;
+    background: rgba(0, 0, 0, 0.1882352941);
+    padding-bottom: 16px;
+    border-radius: 10px;
+    box-shadow: inset -3px -3px 5px rgba(0, 0, 0, 0.1882352941);
+}
+
+.btn-login{
+    background-image: linear-gradient(to right, #468ea5, #ff9cad) !important;
+}

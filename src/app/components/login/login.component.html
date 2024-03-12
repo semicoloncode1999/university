@@ -1,30 +1,39 @@
 <div class="col-12 login-div-container">
     <div class="col-sm-4 text-center login-div">
-        <form [formGroup]="login" class="p-2">
+        <form [formGroup]="login" class="p-2 position-relative" (ngSubmit)="signInEmail()">
             <p class="login-word"> login</p>
-            <!-- <div class="form-group">
-                <input type="email" class="form-control" placeholder="email" formControlName="email">
+            <div class="form-email-pass" [ngClass]="{'d-none':emailForm}">
+                <div class="form-group">
+                    <input type="email" class="form-control" placeholder="email" formControlName="email">
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" placeholder="password" formControlName="pass">
+                </div>
+                <div class="text-center btn-login-div">
+                    <button type="submit" class="btn btn-login">login</button>
+                </div>
             </div>
-            <div class="form-group">
-                <input type="password" class="form-control" placeholder="password" formControlName="pass">
-            </div> -->
 
-            <div class="form-group">
-                <input type="tel" class="form-control" placeholder="phone" #tel>
-            </div>
-            <div id="receptcha-container"></div>
-            <button class="btn btn-login" (click)="phone(tel.value)" [disabled]="OTPButton">send Otp</button>
-            <div class="form-group">
-                <input type="tel" class="form-control" placeholder="otp" #otp>
-            </div>
-            <div class="text-center btn-login-div">
-                <button class="btn btn-login" (click)="sendOTP(otp.value)">verify</button>
+            <div class="phone-login" [ngClass]="{'d-none':!emailForm}">
+                <i class="bi bi-arrow-left-circle" (click)="emailForm=false;"></i>
+                <div class="form-group">
+                    <input type="tel" class="form-control" placeholder="phone" #tel>
+                </div>
+                <div id="receptcha-container"></div>
+                <button class="btn btn-login" (click)="phone(tel.value)" [disabled]="OTPButton">send Otp</button>
+                <div class="form-group">
+                    <input type="tel" class="form-control" placeholder="otp" #otp>
+                </div>
+                <div class="text-center btn-login-div">
+                    <button class="btn btn-login" (click)="sendOTP(otp.value)">verify</button>
+                </div>
             </div>
 
             <div class="d-flex justify-content-between align-items-center">
                 <div>
-                    <a (click)="google()"><i class="bi bi-google icon-login"></i></a>
-                    <a href=""><i class="bi bi-facebook icon-login"></i></a>
+                    <a><button (click)="google()" class="icon-btn"><i class="bi bi-google icon-login"></i></button></a>
+                    <a><button (click)="facebook()" class="icon-btn"><i class="bi bi-facebook icon-login"></i></button></a>
+                    <a><button (click)="emailForm=true;checkRobot();" type="button" class="icon-btn"><i class="bi bi-telephone-plus icon-login"></i></button></a>
                 </div>
                 <a routerLink="/sign-up" class="signUp">sign up now? </a>
             </div>
