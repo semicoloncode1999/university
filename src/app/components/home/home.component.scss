@@ -6,13 +6,27 @@ label{
 }
 
 .col-sm-4{
-    padding: 20px 15px;
-    background: rgba(0, 0, 0, 0.1882352941);
+    padding: 25px 2em;
+    background: rgba(0, 0, 0, 0.06);
     padding-bottom: 16px;
     border-radius: 10px;
     box-shadow: inset -3px -3px 5px rgba(0, 0, 0, 0.1882352941);
+    box-shadow: inset -3px -3px 5px rgb(117 109 109 / 19%), inset 3px 3px 5px rgb(251 251 251 / 33%);
 }
 
 .btn-login{
-    background-image: linear-gradient(to right, #468ea5, #ff9cad) !important;
+    background-image: linear-gradient(to right, #45a8c7, #ff90a3) !important;
+}
+
+.trans{
+    background: none;
+    border: none;
+    position: fixed;
+    top: 22px;
+    right: 2px;
+}
+
+.bi{
+    color: rgb(27, 151, 227);
+    font-size: 25px;
 }

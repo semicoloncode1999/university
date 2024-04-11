@@ -1,0 +1,12 @@
+<p>view-num works!</p>
+<h1 class="text-center">{{x()}}</h1>
+
+<hr>
+
+<div *ngFor="let item of arr()" class="text-center">
+    <p>{{item.id}}</p>
+    <p>{{item.name}}</p>
+</div>
+
+<p>{{arr().length}} items in the list</p>
+<!-- <p>{{mycount()}} items in the list</p> -->

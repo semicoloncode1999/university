@@ -1,23 +1,24 @@
 <div class="container-fluid">
-    <div class="col-sm-4">
+    <button class="trans" (click)="change()"><i class="bi bi-translate"></i></button>
+    <div class="col-sm-4" [ngStyle]="{'direction': lang==='ar'?'rtl' : 'ltr'}">
         <div class="form-group">
-            <label for="university">university : </label>
+            <label for="university">{{"university" | translate}} : </label>
             <select class="form-select" id="university" aria-label="Default select example" [(ngModel)]="university">
                 <option selected>sohag university</option>
             </select>
         </div>
-        
+
         <div class="form-group">
-            <label for="faculty">faculty : </label>
+            <label for="faculty">{{"faculty" | translate}} : </label>
             <select class="form-select" id="faculty" aria-label="Default select example" [(ngModel)]="faculty">
                 <option value="Faculty of medicine">Faculty of medicine</option>
                 <option value="faculty of Pharmacy">faculty of Pharmacy</option>
                 <option value="faculty of Engineering">faculty of Engineering</option>
             </select>
         </div>
-        
+
         <div class="form-group">
-            <label for="year">year  :</label>
+            <label for="year">{{"year" | translate}} :</label>
             <select class="form-select" id="year" aria-label="Default select example" [(ngModel)]="year">
                 <option value="One">One</option>
                 <option value="Two">Two</option>
@@ -26,7 +27,11 @@
         </div>
 
         <div class="text-center">
-            <button class="btn btn-login mt-3" (click)="theChoice()"> show </button>
+            <button class="btn btn-login mt-4 mb-2" (click)="theChoice()"> show </button>
         </div>
+        <!-- <button (click)="change('en')">en</button>
+        <button (click)="change('ar')">ar</button> -->
     </div>
 </div>
+
+<app-university-data></app-university-data>
